@@ -1,28 +1,30 @@
 {
   "name": "cfbs-example",
   "description": "Example project showing basic cfbs usage",
-  "modules":[
+  "modules": [
     {
       "name": "masterfiles",
       "description": "Official CFEngine Masterfiles Policy Framework (MPF)",
       "by": "https://github.com/cfengine",
       "repo": "https://github.com/cfengine/masterfiles",
-      "commit": "TBD",
+      "commit": "28d9b933db5fc8e1dea4338669cc4fd6677646f1",
       "steps": [
-        {"shell": "./autogen.sh"},
-        {"base": "."}
+        "run ./autogen.sh",
+        "delete ./autogen.sh",
+        "copy ./ ./"
       ]
     },
     {
       "name": "appstreams",
       "description": "Custom Promise Type to manage yum module appstreams",
-      "by": "https://github.com/olehermanse",
       "repo": "https://github.com/olehermanse/cfbs-modules",
-      "commit": "TBD",
+      "by": "https://github.com/olehermanse",
+      "commit": "e9d094e277c85da8b39c06c6f94dfc6bc935ac37",
       "subdirectory": "promise_types/appstreams/",
       "steps": [
-        {"copy": ["appstreams.py", "modules/promise_types/"]}
-      ]
+        "copy appstreams.py modules/promise_types/"
+      ],
+      "user_requested": true
     }
   ]
 }
