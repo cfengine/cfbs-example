@@ -1,7 +1,7 @@
 {
   "name": "cfbs-example",
   "description": "Example project showing basic cfbs usage",
-  "modules": [
+  "build": [
     {
       "name": "masterfiles",
       "description": "Official CFEngine Masterfiles Policy Framework (MPF)",
