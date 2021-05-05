@@ -1,56 +1,44 @@
 {
-  "name": "cfbs-example",
-  "description": "Example project showing basic cfbs usage",
+  "name": "Example",
+  "description": "Example description",
   "build": [
     {
       "name": "masterfiles",
       "description": "Official CFEngine Masterfiles Policy Framework (MPF)",
-      "by": "https://github.com/cfengine",
+      "tags": ["official", "base"],
       "repo": "https://github.com/cfengine/masterfiles",
+      "by": "https://github.com/cfengine",
       "commit": "28d9b933db5fc8e1dea4338669cc4fd6677646f1",
-      "steps": [
-        "run ./autogen.sh",
-        "delete ./autogen.sh",
-        "copy ./ ./"
-      ]
+      "steps": ["run ./autogen.sh", "delete ./autogen.sh", "copy ./ ./"],
+      "added_by": {
+        "masterfiles": "cfbs add"
+      }
     },
     {
-      "name": "appstreams",
-      "description": "Custom Promise Type to manage yum module appstreams",
+      "name": "library-for-promise-types-in-python",
+      "description": "Library enabling promise types implemented in python",
+      "tags": ["wip", "untested", "library"],
       "repo": "https://github.com/olehermanse/cfbs-modules",
       "by": "https://github.com/olehermanse",
-      "commit": "ca70cf5d379924600434264c4944fdddf036da7c",
-      "subdirectory": "promise_types/appstreams/",
+      "commit": "1438ad8515267b3dd4b862cfcd63c1b9ccfb42e1",
+      "subdirectory": "libraries/python/",
+      "steps": ["copy cfengine.py modules/promise_types/"],
+      "added_by": "promise-type-git"
+    },
+    {
+      "name": "promise-type-git",
+      "description": "Promise type to manage git repos",
+      "tags": ["wip", "untested", "promise-type", "example"],
+      "repo": "https://github.com/olehermanse/cfbs-modules",
+      "by": "https://github.com/olehermanse",
+      "dependencies": ["library-for-promise-types-in-python"],
+      "commit": "1438ad8515267b3dd4b862cfcd63c1b9ccfb42e1",
+      "subdirectory": "promise_types/git/",
       "steps": [
-        "copy appstreams.py modules/promise_types/",
+        "copy git.py modules/promise_types/",
         "append enable.cf services/init.cf"
       ],
-      "user_requested": true
-    },
-    {
-      "name": "client-initiated-reporting",
-      "description": "Enable client initiated reporting and disable pull collection",
-      "repo": "https://github.com/olehermanse/cfbs-modules.git",
-      "by": "https://github.com/olehermanse",
-      "commit": "ca70cf5d379924600434264c4944fdddf036da7c",
-      "subdirectory": "reporting/client-initiated-reporting",
-      "steps": [
-        "json def.json def.json"
-      ],
-      "user_requested": true
-    },
-    {
-      "name": "cfengine-cis",
-      "description": "Framework to check Linux (Unix) installations for CIS-compliance",
-      "repo": "https://github.com/nickanderson/cfengine-cis",
-      "by": "https://github.com/nickanderson",
-      "commit": "6c04f538cb33e084f435275777be421e5b104e20",
-      "steps": [
-        "copy policy/ services/CIS/",
-        "json extras/autorun/example_def.json def.json",
-        "copy extras/autorun/cis_includefiles.cf services/autorun/"
-      ],
-      "user_requested": true
+      "added_by": "cfbs add"
     }
   ]
 }
