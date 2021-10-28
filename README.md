@@ -1,15 +1,11 @@
-# Unoffical CFEngine Build System Example
+# CFEngine Build Module Example
 
-Example project showing basic cfbs usage.
+You can use this template if you want to make your own module.
 
-The CFEngine Build System (cfbs) comes with **no warranty** and is **not supported**.
-This is a work in progress, everything will change.
-Use at your own risk!
+## CFEngine Build Repositories
 
-## CFEngine Build System Repositories
-
-* [modules](https://github.com/cfengine/modules) - Official modules provided by the CFEngine team
+* [build-index](https://github.com/cfengine/build-index) - Index of modules
+* [build-website](https://github.com/cfengine/build-website) - Website
 * [cfbs](https://github.com/cfengine/cfbs) - Command line client
-* [cfbs-index](https://github.com/cfengine/cfbs-index) - Index of modules
-* [cfbs-web](https://github.com/cfengine/cfbs-web) - Website
-* [cfbs-example](https://github.com/cfengine/cfbs-example) - Example project using cfbs
+* [modules](https://github.com/cfengine/modules) - Official modules provided by the CFEngine team
+* [module-template](https://github.com/cfengine/build-example) - Template for creating new modules
