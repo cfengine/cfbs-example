@@ -5,7 +5,7 @@ bundle agent hello_inventory
   vars:
     "hello"
       string => "Hello from CFEngine Build",
-      tags => { "inventory", "attribute_name=Hello"};
+      meta => { "inventory", "attribute_name=Hello"};
   reports:
     "Hello from CFEngine Build";
 }
