@@ -1,11 +1,17 @@
-# CFEngine Build Module Example
+# CFEngine Build module template
 
-You can use this template if you want to make your own module.
+You can use this template if you want to make your own modules.
+See this guide for an explanation:
 
-## CFEngine Build Repositories
+https://github.com/cfengine/build-index/blob/master/CONTRIBUTING.md
 
-* [build-index](https://github.com/cfengine/build-index) - Index of modules
-* [build-website](https://github.com/cfengine/build-website) - Website
-* [cfbs](https://github.com/cfengine/cfbs) - Command line client
-* [modules](https://github.com/cfengine/modules) - Official modules provided by the CFEngine team
-* [module-template](https://github.com/cfengine/build-example) - Template for creating new modules
+This module has a policy file which reports the following string:
+
+```
+Hello from CFEngine Build
+```
+
+The string is printed to the terminal and sent to the reporting hub as inventory information (in CFEngine Enterprise).
+
+It is meant as an example / starting point.
+Edit `cfbs.json` and `my_policy.cf` to experiment.

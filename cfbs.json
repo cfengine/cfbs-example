@@ -1,44 +1,13 @@
 {
-  "name": "Example",
-  "description": "Example description",
-  "build": [
-    {
-      "name": "masterfiles",
-      "description": "Official CFEngine Masterfiles Policy Framework (MPF)",
-      "tags": ["official", "base"],
-      "repo": "https://github.com/cfengine/masterfiles",
-      "by": "https://github.com/cfengine",
-      "commit": "28d9b933db5fc8e1dea4338669cc4fd6677646f1",
-      "steps": ["run ./autogen.sh", "delete ./autogen.sh", "copy ./ ./"],
-      "added_by": {
-        "masterfiles": "cfbs add"
-      }
-    },
-    {
-      "name": "library-for-promise-types-in-python",
-      "description": "Library enabling promise types implemented in python",
-      "tags": ["wip", "untested", "library"],
-      "repo": "https://github.com/cfengine/cfbs-modules",
-      "by": "https://github.com/cfengine",
-      "commit": "1438ad8515267b3dd4b862cfcd63c1b9ccfb42e1",
-      "subdirectory": "libraries/python/",
-      "steps": ["copy cfengine.py modules/promise_types/"],
-      "added_by": "promise-type-git"
-    },
-    {
-      "name": "promise-type-git",
-      "description": "Promise type to manage git repos",
-      "tags": ["wip", "untested", "promise-type", "example"],
-      "repo": "https://github.com/cfengine/cfbs-modules",
-      "by": "https://github.com/cfengine",
-      "dependencies": ["library-for-promise-types-in-python"],
-      "commit": "1438ad8515267b3dd4b862cfcd63c1b9ccfb42e1",
-      "subdirectory": "promise_types/git/",
-      "steps": [
-        "copy git.py modules/promise_types/",
-        "append enable.cf services/init.cf"
-      ],
-      "added_by": "cfbs add"
+  "name": "CFEngine Build module template repo",
+  "type": "module-repo",
+  "description": "This repo only provides 1 module, and is a good starting point for making your own modules",
+  "provides": {
+    "my-module": {
+      "description": "This module has a policy file which reports a string to the terminal, and to the inventory system",
+      "tags": ["inventory"],
+      "dependencies": ["autorun"],
+      "steps": ["copy ./my_policy.cf services/autorun/my_policy.cf"]
     }
-  ]
+  }
 }
